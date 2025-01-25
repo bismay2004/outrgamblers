@@ -100,3 +100,33 @@ let bets = JSON.parse(localStorage.getItem("bets")) || [];
 
 // Update the list and table on page load
 updateBetsList();
+
+
+
+
+document.getElementById("darkModeToggle").addEventListener("change", (e) => {
+    if (e.target.checked) {
+        document.body.classList.add("dark-mode");
+    } else {
+        document.body.classList.remove("dark-mode");
+    }
+});
+
+
+document.querySelectorAll('.button').forEach(button => {
+    button.addEventListener('click', () => {
+        document.getElementById('buttonSound').play();
+    });
+});
+
+
+
+// Dark Mode Toggle with Slide Switch
+document.getElementById("darkModeToggle").addEventListener("change", (e) => {
+    if (e.target.checked) {
+        document.body.classList.add("dark-mode");
+    } else {
+        document.body.classList.remove("dark-mode");
+    }
+});
+
