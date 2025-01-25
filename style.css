@@ -122,3 +122,73 @@ body {
         opacity: 1;
     }
 }
+/* Splash Screen */
+.splash {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(135deg, #230454, #182848); /* Dual-tone: dark blue and purple */
+    background-size: 400% 400%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 9999;
+    animation: gradientShift 5s ease infinite, fadeOut 1.5s ease-in-out 1.5s forwards; /* Fade-out after 1.5 seconds */
+}
+
+.splash-title {
+    font-size: 4.5rem; /* Larger title for emphasis */
+    color: #fff; /* White color for text */
+    text-transform: uppercase;
+    font-family: 'Playfair Display', serif; /* Professional serif font for sophistication */
+    text-shadow: 0px 4px 10px rgba(0, 0, 0, 0.8), 0px 0px 30px rgba(75, 108, 183, 0.8), 0px 0px 50px rgba(24, 40, 72, 0.8); /* Dual-tone glow effect */
+    animation: pulse 1s ease infinite, zoomIn 1s ease-in-out;
+    letter-spacing: 0.1rem; /* Slight letter-spacing */
+}
+
+/* Pulsing Text Effect */
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    50% {
+        transform: scale(1.05);
+        opacity: 0.95;
+    }
+}
+
+/* Background Gradient Animation */
+@keyframes gradientShift {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+/* Zoom In Effect for Text */
+@keyframes zoomIn {
+    from {
+        transform: scale(0.7);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+/* Fade Out Transition */
+@keyframes fadeOut {
+    to {
+        opacity: 0;
+        visibility: hidden;
+    }
+}
