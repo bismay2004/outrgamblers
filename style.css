@@ -129,7 +129,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    background: linear-gradient(135deg, #230454, #182848); /* Dual-tone: dark blue and purple */
+    background: linear-gradient(135deg, #3a1e70, #182848); /* Dual-tone: dark blue and purple */
     background-size: 400% 400%;
     position: fixed;
     top: 0;
@@ -144,7 +144,7 @@ body {
     text-transform: uppercase;
     font-family: 'Playfair Display', serif; /* Professional serif font for sophistication */
     text-shadow: 0px 4px 10px rgba(0, 0, 0, 0.8), 0px 0px 30px rgba(75, 108, 183, 0.8), 0px 0px 50px rgba(24, 40, 72, 0.8); /* Dual-tone glow effect */
-    animation: pulse 1s ease infinite, zoomIn 1s ease-in-out;
+    animation: pulse 1s ease infinite, zoomIn 2s ease-in-out forwards; /* Stay at final zoomed-in size */
     letter-spacing: 0.1rem; /* Slight letter-spacing */
 }
 
