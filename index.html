@@ -9,10 +9,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gambling Calculator</title>
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&display=swap" rel="stylesheet">
+  <!-- FontAwesome for Icons -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+
 
 </head>
 <body>
+   <!-- Dark Mode Toggle Button -->
+<label class="switch">
+    <input type="checkbox" id="darkModeToggle">
+    <span class="slider">
+      <i class="fas fa-sun sun-icon"></i>  <!-- Sun icon for light mode -->
+      <i class="fas fa-moon moon-icon"></i> <!-- Moon icon for dark mode -->
+    </span>
+  </label>
+  
+
+    <audio id="buttonSound" src="zapsplat_household_switch_light_wall_mounted_old_dial_turn_single_click_110069.mp3" preload="auto"></audio>
+
     <div id="splash" class="splash">
         <div class="splash-title">OUTR Gamblers</div>
     </div>
@@ -22,7 +36,7 @@
         }, 1500); // Now disappears after 1.5 seconds
     </script>
     
-        
+   
 
     <div class="container">
         <h1 class="title">OUTR GAMBLERS</h1>
@@ -42,6 +56,7 @@
 
         <div class="section">
             <h2>Current Bets</h2>
+            
             <ul id="betList" class="list"></ul>
         </div>
 
@@ -75,11 +90,6 @@
             </div>
         </div>
     </div>
-
-    <script src="script.js"></script>
-</body>
-</html>
-
 
     <script src="script.js"></script>
 </body>
