@@ -1,194 +1,102 @@
-/* Add this at the top of your CSS file */
-@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+// Splash Screen Logic
+window.addEventListener("load", () => {
+    const splash = document.getElementById("splash");
+    setTimeout(() => {
+        splash.style.display = "none"; // Hide the splash screen after 2 seconds
+    }, 2000); // 2-second duration
+});
 
-body {
-    font-family: 'Roboto', sans-serif;
-    margin: 0;
-    padding: 0;
-    background: linear-gradient(135deg, #4b0082, #000080); /* Dark background */
-    color: #fff;
-    display: flex;
-    justify-content: center;
-    align-items: flex-start; /* Top align */
-    height: 100vh;
-    overflow-y: auto; /* Enable vertical scrolling */
-    text-align: center; /* Center text */
+// Function to update the bets list and table (for showing data on page)
+function updateBetsList() {
+    const betList = document.getElementById("betList");
+    betList.innerHTML = "";
+    bets.forEach(bet => {
+        const listItem = document.createElement("li");
+        listItem.textContent = `${bet.name} bet ₹${bet.betAmount} on Team ${bet.team}`;
+        betList.appendChild(listItem);
+    });
+
+    const betsTable = document.getElementById("betsTable");
+    betsTable.innerHTML = `<tr><th>Name</th><th>Bet Amount</th><th>Team</th></tr>`;
+    bets.forEach(bet => {
+        const row = document.createElement("tr");
+        row.innerHTML = `<td>${bet.name}</td><td>₹${bet.betAmount}</td><td>Team ${bet.team}</td>`;
+        betsTable.appendChild(row);
+    });
 }
 
-.container {
-    width: 100%;
-    max-width: 1000px; /* Allow container to grow larger */
-    height: auto;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start; /* Align content from top */
-    align-items: center;
-    padding: 30px;
-    box-sizing: border-box;
-    border-radius: 16px;
-    background: rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(15px);
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
-    animation: fadeIn 1s ease-in-out;
-}
+// When the "Add Bet" button is clicked
+document.getElementById("addBet").addEventListener("click", () => {
+    const name = document.getElementById("name").value;
+    const betAmount = parseFloat(document.getElementById("betAmount").value);
+    const team = document.getElementById("team").value;
 
-.title {
-    font-size: 3rem;
-    color: #f2d8f7; /* Golden color for title */
-    font-weight: bold;
-    margin-bottom: 20px;
-    text-align: center;
-    font-family: 'Press Start 2P', monospace; /* Title with the new font */
-}
+    if (name && betAmount > 0) {
+        const bet = { name, betAmount, team };
+        bets.push(bet);
 
-.subtitle {
-    font-size: 1.5rem;
-    color: #ffffff;
-    margin: 10px 0;
-    font-family: 'Arial', sans-serif;
-}
+        // Save to localStorage
+        localStorage.setItem("bets", JSON.stringify(bets));
 
-.input {
-    margin: 10px 0;
-    padding: 12px;
-    width: 250px; /* Smaller input fields */
-    border: none;
-    border-radius: 8px;
-    background: rgba(131, 213, 223, 0.24); /* Slightly lighter background */
-    color: #000000; /* Dark text for visibility */
-    font-size: 1rem;
-    outline: none;
-}
+        // Clear input fields
+        document.getElementById("name").value = "";
+        document.getElementById("betAmount").value = "";
+        document.getElementById("team").value = "A";
 
-.input:focus {
-    background: rgb(255, 255, 255); /* Change color on focus */
-}
-
-.button {
-    padding: 12px 20px;
-    margin-top: 20px;
-    background-color: #4caf50;
-    color: #fff;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    font-size: 1.2rem;
-    transition: all 0.3s;
-}
-
-.button:hover {
-    background-color: #45a049;
-    transform: translateY(-2px);
-}
-
-.table {
-    width: 100%;
-    margin-top: 20px;
-    border-collapse: collapse;
-    text-align: center;
-}
-
-.table th, .table td {
-    padding: 10px;
-    border: 1px solid #ddd;
-    background: rgba(255, 255, 255, 0.1);
-}
-
-.table th {
-    background: rgba(255, 255, 255, 0.3);
-    color: #ffeb3b;
-}
-
-.results {
-    margin-top: 20px;
-    padding: 10px;
-    border-radius: 8px;
-    background: rgba(0, 0, 0, 0.3);
-    width: 100%;
-    box-sizing: border-box;
-}
-
-.info {
-    font-weight: bold;
-    margin-bottom: 10px;
-    color: #ffeb3b;
-}
-
-@keyframes fadeIn {
-    from {
-        opacity: 0;
+        // Update list and table
+        updateBetsList();
     }
-    to {
-        opacity: 1;
-    }
-}
-/* Splash Screen */
-.splash {
-    width: 100%;
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background: linear-gradient(135deg, #230454, #182848); /* Dual-tone: dark blue and purple */
-    background-size: 400% 400%;
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: 9999;
-    animation: gradientShift 5s ease infinite, fadeOut 1.5s ease-in-out 1.5s forwards; /* Fade-out after 1.5 seconds */
-}
+});
 
-.splash-title {
-    font-size: 4.5rem; /* Larger title for emphasis */
-    color: #fff; /* White color for text */
-    text-transform: uppercase;
-    font-family: 'Playfair Display', serif; /* Professional serif font for sophistication */
-    text-shadow: 0px 4px 10px rgba(0, 0, 0, 0.8), 0px 0px 30px rgba(75, 108, 183, 0.8), 0px 0px 50px rgba(24, 40, 72, 0.8); /* Dual-tone glow effect */
-    animation: pulse 1s ease infinite, zoomIn 1s ease-in-out;
-    letter-spacing: 0.1rem; /* Slight letter-spacing */
-}
+// When the "Calculate Winnings" button is clicked
+document.getElementById("calculate").addEventListener("click", () => {
+    const profitPercentage = parseFloat(document.getElementById("profitPercentage").value) / 100;
+    const winner = document.getElementById("winner").value;
 
-/* Pulsing Text Effect */
-@keyframes pulse {
-    0%, 100% {
-        transform: scale(1);
-        opacity: 1;
+    if (!winner) {
+        alert("Please select a winning team.");
+        return;
     }
-    50% {
-        transform: scale(1.05);
-        opacity: 0.95;
-    }
-}
 
-/* Background Gradient Animation */
-@keyframes gradientShift {
-    0% {
-        background-position: 0% 50%;
-    }
-    50% {
-        background-position: 100% 50%;
-    }
-    100% {
-        background-position: 0% 50%;
-    }
-}
+    const totalBetA = bets.filter(bet => bet.team === "A").reduce((sum, bet) => sum + bet.betAmount, 0);
+    const totalBetB = bets.filter(bet => bet.team === "B").reduce((sum, bet) => sum + bet.betAmount, 0);
+    const totalMoney = totalBetA + totalBetB;
+    const profit = totalMoney * profitPercentage;
+    const distributable = totalMoney - profit;
 
-/* Zoom In Effect for Text */
-@keyframes zoomIn {
-    from {
-        transform: scale(0.7);
-        opacity: 0;
-    }
-    to {
-        transform: scale(1);
-        opacity: 1;
-    }
-}
+    const winners = bets.filter(bet => bet.team === winner);
+    const totalWinnerBet = winners.reduce((sum, bet) => sum + bet.betAmount, 0);
 
-/* Fade Out Transition */
-@keyframes fadeOut {
-    to {
-        opacity: 0;
-        visibility: hidden;
-    }
-}
+    document.getElementById("managementCut").textContent = `Management Cut: ₹${profit.toFixed(2)}`;
+    const winnersList = document.getElementById("winnersList");
+    winnersList.innerHTML = "";
+
+    winners.forEach(winner => {
+        const amount = ((winner.betAmount / totalWinnerBet) * distributable).toFixed(2);
+        const winnerItem = document.createElement("li");
+        winnerItem.textContent = `${winner.name} wins ₹${amount}`;
+        winnersList.appendChild(winnerItem);
+    });
+});
+
+// When the "Clear All Data" button is clicked
+document.getElementById("clearAll").addEventListener("click", () => {
+    // Clear localStorage
+    localStorage.removeItem("bets");
+
+    // Reset bets array
+    bets = [];
+
+    // Update the bet list and table (which will be empty now)
+    updateBetsList();
+
+    // Optional: You can clear the results as well
+    document.getElementById("managementCut").textContent = "";
+    document.getElementById("winnersList").innerHTML = "";
+});
+
+// Retrieve saved bets from localStorage on page load
+let bets = JSON.parse(localStorage.getItem("bets")) || [];
+
+// Update the list and table on page load
+updateBetsList();
