@@ -129,4 +129,3 @@ document.getElementById("darkModeToggle").addEventListener("change", (e) => {
         document.body.classList.remove("dark-mode");
     }
 });
-
