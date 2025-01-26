@@ -240,15 +240,15 @@ body.dark-mode .title {
 
 
 
-/* Dark Mode Toggle Switch */
+/* Responsive Dark Mode Toggle Switch */
 .switch {
     position: fixed;
     top: 20px;
     right: 20px;
-    display: inline-block;
-    width: 60px;
-    height: 34px;
+    width: 60px; /* Width of the toggle */
+    height: 34px; /* Height of the toggle */
     cursor: pointer;
+    z-index: 100; /* Ensure it stays on top */
   }
   
   .switch input {
@@ -263,7 +263,7 @@ body.dark-mode .title {
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: #824caf;
+    background-color: #4359e7;
     border-radius: 50px;
     transition: 0.4s;
     display: flex;
@@ -272,64 +272,57 @@ body.dark-mode .title {
     padding: 4px;
   }
   
-  .sun-icon, .moon-icon {
-    color: white;
-    font-size: 18px;
-  }
-  
   .slider:before {
     position: absolute;
     content: "";
     height: 26px;
     width: 26px;
-    border-radius: 50px;
+    border-radius: 50%;
     left: 4px;
     bottom: 4px;
-    background-color: rgb(255, 255, 255);
+    background-color: white;
     transition: 0.4s;
   }
   
   input:checked + .slider {
-    background-color: #4caf50;  /* Green color for dark mode */
+    background-color: #4caf50; /* Green for dark mode */
   }
   
   input:checked + .slider:before {
-    transform: translateX(26px);
+    transform: translateX(26px); /* Move slider circle */
+  }
+  
+  /* Icons within the slider */
+  .sun-icon, .moon-icon {
+    color: white;
+    font-size: 16px;
+    display: none;
   }
   
   input:checked + .slider .moon-icon {
-    display: block;
+    display: block; /* Show moon in dark mode */
   }
   
   input:not(:checked) + .slider .sun-icon {
-    display: block;
+    display: block; /* Show sun in light mode */
   }
   
-  /* Initially hide moon or sun icon depending on the mode */
-  .sun-icon {
-    display: none;
-  }
+  /* Adjustments for smaller screens */
+  @media (max-width: 768px) {
+    .switch {
+      width: 50px; /* Slightly smaller width */
+      height: 30px; /* Slightly smaller height */
+    }
   
-  .moon-icon {
-    display: none;
-  }
+    .slider:before {
+      height: 22px;
+      width: 22px;
+      left: 4px;
+      bottom: 4px;
+    }
   
-  /* Dark Mode Styles */
-  .dark-mode {
-    background-color: #121212;
-    color: #e0e0e0;
-  }
-  
-  .dark-mode .input, .dark-mode .button, .dark-mode .list {
-    background-color: #333;
-    color: #e0e0e0;
-  }
-  
-  .dark-mode .button {
-    background-color: #4caf50;
-  }
-  
-  .dark-mode .title, .dark-mode .subtitle {
-    color: #f2d8f7;
+    .sun-icon, .moon-icon {
+      font-size: 14px; /* Adjust icon size for smaller screens */
+    }
   }
   
