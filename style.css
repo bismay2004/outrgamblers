@@ -1,0 +1,493 @@
+/* Add this at the top of your CSS file */
+/* Import Google Font */
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Russo+One&display=swap');
+
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(135deg, #4b0082, #000080); /* Dark background */
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start; /* Top align */
+    height: 140vh;
+    overflow-y: auto;
+    text-align: center;
+}
+
+
+.container {
+    width: 100%;
+    max-width: 1000px; 
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 30px;
+    box-sizing: border-box;
+    border-radius: 16px;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(15px);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+    animation: fadeIn 1s ease-in-out;
+}
+.title {
+    font-size: 3rem;
+    color: #f2d8f7; /* Golden color for title */
+    font-weight: bold;
+    margin-bottom: 20px;
+    text-align: center;
+    font-family: 'Press Start 2P', monospace; /* Title with the new font */
+}
+
+.subtitle {
+    font-size: 1.5rem;
+    color: #ffffff;
+    margin: 10px 0;
+    font-family: 'Arial', sans-serif;
+}
+
+.input {
+    margin: 10px 0;
+    padding: 12px;
+    width: 250px; /* Smaller input fields */
+    border: none;
+    border-radius: 8px;
+    background: rgba(131, 213, 223, 0.24); /* Slightly lighter background */
+    color: #000000; /* Dark text for visibility */
+    font-size: 1rem;
+    outline: none;
+}
+
+.input:focus {
+    background: rgb(255, 255, 255); /* Change color on focus */
+}
+
+.button {
+    padding: 12px 20px;
+    margin-top: 20px;
+    background-color: #4caf50;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1.2rem;
+    transition: all 0.3s;
+}
+
+.button:hover {
+    background-color: #45a049;
+    transform: translateY(-2px);
+}
+/* Hover Animation for Buttons */
+.button:hover {
+    transform: scale(1.1); /* Slight zoom effect */
+    background-color: #388e3c; /* Darker green shade on hover */
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+/* Default Light Mode Styles (as previously mentioned) */
+.table {
+    width: 100%;
+    margin-top: 20px;
+    border-collapse: collapse;
+    text-align: center;
+    background: rgba(30, 30, 60, 0.8); /* Transparent dark blue background */
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease;
+}
+
+.table th, .table td {
+    padding: 15px;
+    border: 1px solid #444;
+    background: rgba(255, 255, 255, 0.05); /* Transparent background */
+    color: #E0E0E0; /* Light grey text */
+    font-size: 1rem;
+    font-weight: 500;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.table th {
+    background: linear-gradient(45deg, #6A1B9A, #3F51B5); /* Purple to Blue gradient for header */
+    color: #ffffff; /* White text for contrast */
+    text-transform: uppercase;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+.table td {
+    background: rgba(255, 255, 255, 0.03); /* Slightly darker for table cells */
+}
+
+.table td:hover {
+    background: rgba(255, 255, 255, 0.1);
+    transform: translateY(-2px);
+}
+
+.table tr:nth-child(even) td {
+    background: rgba(255, 255, 255, 0.03);
+}
+
+.table tr:nth-child(odd) td {
+    background: rgba(255, 255, 255, 0.02);
+}
+
+.table td, .table th {
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.table tr:hover {
+    background-color: rgba(255, 255, 255, 0.08); /* Subtle hover effect */
+}
+
+.table th, .table td {
+    border-radius: 8px;
+}
+
+.table-container {
+    overflow-x: auto;
+    margin-top: 20px;
+    padding: 20px;
+    background: rgba(20, 20, 40, 0.6); /* Transparent background for the container */
+    border-radius: 12px;
+}
+
+/* Dark Mode Styles */
+body.dark-mode .table {
+    background: rgba(15, 15, 30, 0.9); /* Dark blue background */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+}
+
+body.dark-mode .table th {
+    background: linear-gradient(45deg, #3F51B5, #1A237E); /* Dark blue gradient for header */
+}
+
+body.dark-mode .table td {
+    background: rgba(255, 255, 255, 0.07); /* Darker cells for dark mode */
+}
+
+body.dark-mode .table tr:nth-child(even) td {
+    background: rgba(255, 255, 255, 0.05);
+}
+
+body.dark-mode .table tr:nth-child(odd) td {
+    background: rgba(255, 255, 255, 0.03);
+}
+
+body.dark-mode .table td:hover {
+    background: rgba(255, 255, 255, 0.1);
+    transform: translateY(-2px);
+}
+
+
+.results {
+    margin-top: 20px;
+    padding: 10px;
+    border-radius: 8px;
+    background: rgba(0, 0, 0, 0.3);
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.info {
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #ffeb3b;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+/* Splash Screen */
+.splash {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(135deg, #3a1e70, #182848); /* Dual-tone: dark blue and purple */
+    background-size: 400% 400%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 9999;
+    animation: gradientShift 5s ease infinite, fadeOut 1.5s ease-in-out 1.5s forwards; /* Fade-out after 1.5 seconds */
+}
+
+/* Splash Screen Styles */
+.splash {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #1a237e; /* Dark blue background */
+}
+
+.splash-title {
+    font-family: 'Russo One', sans-serif; /* Gambling-style bold font */
+    font-size: 4.5rem; /* Larger title for emphasis */
+    color: #f0be0b; /* White color for text */
+    text-transform: uppercase;
+    text-shadow: 0px 4px 10px rgba(0, 0, 0, 0.8), 
+                 0px 0px 30px rgba(75, 108, 183, 0.8), 
+                 0px 0px 50px rgba(24, 40, 72, 0.8); /* Dual-tone glow effect */
+    animation: pulse 1s ease infinite, zoomIn 2s ease-in-out forwards; /* Stay at final zoomed-in size */
+    letter-spacing: 0.1rem; /* Slight letter-spacing */
+}
+
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    50% {
+        transform: scale(1.05);
+        opacity: 0.95;
+    }
+}
+
+@keyframes zoomIn {
+    0% {
+        transform: scale(0.9);
+        opacity: 0;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+/* Background Gradient Animation */
+@keyframes gradientShift {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+/* Zoom In Effect for Text */
+@keyframes zoomIn {
+    from {
+        transform: scale(0.7);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+/* Fade Out Transition */
+@keyframes fadeOut {
+    to {
+        opacity: 0;
+        visibility: hidden;
+    }
+}
+
+
+
+/* Dark Mode Styles */
+body.dark-mode {
+    background: #0e072c; /* Dark background */
+    color: #8f8a8a; /* White text for readability */
+}
+
+body.dark-mode .input, body.dark-mode  {
+    background: #05052e; /* Dark input/button */
+    color: #fff;
+}
+body.dark-mode .button{
+    background: #42136e; /* Dark button */
+    color: #fff;
+}
+
+body.dark-mode .container {
+    background: rgba(255, 255, 255, 0.05); /* Transparent dark container */
+}
+
+body.dark-mode .title {
+    color: #ffeb3b; /* Gold color for title in dark mode */
+}
+
+.dark-mode-label {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    font-size: 1.2rem;
+    color: #fff;
+    cursor: pointer;
+}
+
+.dark-mode-label input {
+    margin-left: 10px;
+}
+
+
+
+
+/* Responsive Dark Mode Toggle Switch */
+.switch {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    width: 60px; /* Width of the toggle */
+    height: 34px; /* Height of the toggle */
+    cursor: pointer;
+    z-index: 100; /* Ensure it stays on top */
+  }
+  
+  .switch input {
+    opacity: 0; /* Hide the checkbox */
+    width: 0;
+    height: 0;
+  }
+  
+  .slider {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #4359e7;
+    border-radius: 50px;
+    transition: 0.4s;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 4px;
+  }
+  
+  .slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    border-radius: 50%;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    transition: 0.4s;
+  }
+  
+  input:checked + .slider {
+    background-color: #4caf50; /* Green for dark mode */
+  }
+  
+  input:checked + .slider:before {
+    transform: translateX(26px); /* Move slider circle */
+  }
+  
+  /* Icons within the slider */
+  .sun-icon, .moon-icon {
+    color: white;
+    font-size: 16px;
+    display: none;
+  }
+  
+  input:checked + .slider .moon-icon {
+    display: block; /* Show moon in dark mode */
+  }
+  
+  input:not(:checked) + .slider .sun-icon {
+    display: block; /* Show sun in light mode */
+  }
+  
+  /* Adjustments for smaller screens */
+  @media (max-width: 768px) {
+    .switch {
+      width: 50px; /* Slightly smaller width */
+      height: 30px; /* Slightly smaller height */
+    }
+  
+    .slider:before {
+      height: 22px;
+      width: 22px;
+      left: 4px;
+      bottom: 4px;
+    }
+  
+    .sun-icon, .moon-icon {
+      font-size: 14px; /* Adjust icon size for smaller screens */
+    }
+  }
+  
+
+
+  .login-container {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate3d(-50%, -50%, 0); /* Center the container */
+    background-color: rgba(30, 30, 30, 0.8); /* Dark, semi-transparent background */
+    border-radius: 15px; /* Rounded corners */
+    padding: 40px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+    width: 350px;
+    text-align: center; /* Center the content */
+    z-index: 1000;
+}
+
+.login-container h2 {
+    color: #fff;
+    margin-bottom: 30px;
+}
+
+.login-container input[type="text"],
+.login-container input[type="password"] {
+    width: calc(100% - 20px);
+    padding: 12px;
+    margin-bottom: 0px;
+    border: none;
+    border-radius: 8px; /* Rounded corners for inputs */
+    background-color: rgba(255, 255, 255, 0.1); /* Slightly transparent white background */
+    color: #fff;
+    font-size: 1rem;
+    box-sizing: border-box;
+}
+
+.login-container input[type="text"]:focus,
+.login-container input[type="password"]:focus {
+    outline: none;
+    background-color: rgba(255, 255, 255, 0.2); /* Slightly more opaque on focus */
+    box-shadow: 0 0 5px rgba(255, 255, 255, 0.1); /* Subtle glow on focus */
+}
+
+.login-container button {
+    width: 100%;
+    padding: 12px;
+    background-color: #e53935; /* Red button color */
+    color: #fff;
+    border: none;
+    border-radius: 8px; /* Rounded corners for button */
+    cursor: pointer;
+    font-size: 1rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle button shadow */
+    transition: background-color 0.3s ease;
+}
+
+.login-container button:hover {
+    background-color: #c62828; /* Darker red on hover */
+}
+
+.login-container a {
+    color: #fff;
+    text-decoration: none;
+    display: block; /* Make the link a block element */
+    margin-top: 10px;
+}

@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gambling Calculator</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- FontAwesome for Icons -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+
+   <!-- Splash Screen -->
+<div id="splash" class="splash">
+    <div class="splash-title">OUTR Gamblers</div>
+</div>
+
+
+    <!-- Dark Mode Toggle Button -->
+    <label class="switch">
+        <input type="checkbox" id="darkModeToggle">
+        <span class="slider">
+            <i class="fas fa-sun sun-icon"></i>
+            <i class="fas fa-moon moon-icon"></i>
+        </span>
+    </label>
+
+    <!-- Login Page -->
+<div id="loginPage" class="login-container" style="display: none;">
+    <!-- <h2>OUTR GAMBLERS</h2>
+    <p>Your Betting Hub</p> -->
+
+    <!-- Password Input -->
+    <input type="password" id="passwordInput" placeholder="Enter your password">
+
+    <!-- Login Button -->
+    <button onclick="checkLogin()">Login</button>
+
+    <!-- Error Message -->
+    <p id="errorMessage" class="error-message" style="display: none;">Incorrect password. Try again.</p>
+</div>
+
+
+    <!-- <div class="login-container">
+        <h2>OUTR GAMBLERS</h2>
+        <p>Your Betting Hub</p>
+    
+        <input type="password" placeholder="Password">
+        <button>Login</button>
+    </div> -->
+
+    <!-- Main Content -->
+    <div id="mainContent" class="container" style="display: none;">
+        <h1 class="title">OUTR GAMBLERS</h1>
+
+        <div class="section">
+            <h2>Add a Bet</h2>
+            <div class="form-group">
+                <input type="text" id="name" placeholder="Name" class="input">
+                <input type="number" id="betAmount" placeholder="Bet Amount" class="input">
+                <select id="team" class="input">
+                    <option value="A">Team A</option>
+                    <option value="B">Team B</option>
+                </select>
+               <br> <button id="addBet" class="button">Add Bet</button></br>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Current Bets</h2>
+            <ol id="betList" class="list"></ol>
+        </div>
+
+        <!-- All Bets Table -->
+        <div class="section">
+            <h2>All Bets</h2>
+            <table id="betsTable" class="table"></table>
+        </div>
+
+        <div class="section">
+            <h2>Set Profit Percentage</h2>
+            <input type="number" id="profitPercentage" value="10" class="input short-input"> %
+        </div>
+
+        <div class="section">
+            <h2>Calculate Winnings</h2>
+            <select id="winner" class="input">
+                <option value="">Select Winning Team</option>
+                <option value="A">Team A</option>
+                <option value="B">Team B</option>
+            </select>
+            <button id="calculate" class="button">Calculate</button>
+           <br> <button id="clearAll" class="button" style="background-color: crimson; color: white;">Clear All</button> </br>
+
+            <div id="results" class="results">
+                <h3>Results</h3>
+                <p id="managementCut" class="info"></p>
+                <ul id="winnersList" class="list"></ul>
+            </div>
+        </div>
+
+        <p style="text-align: center; font-size: 12px; color: #aaa; padding: 20px 0;">
+            © 2025 OUTR Gamblers. All rights reserved. | Crafted with passion and precision | BISMAY MANDAL
+        </p>
+    </div>
+
+    <script>
+        // Splash Screen Timer
+        setTimeout(() => {
+            document.getElementById("splash").style.display = "none";
+            document.getElementById("loginPage").style.display = "flex"; // Show login page after splash
+        }, 1500);
+
+        // Automatically log out on reload
+        document.addEventListener("DOMContentLoaded", function () {
+            sessionStorage.removeItem("loggedIn"); // Clears login session on reload
+        });
+
+        function checkLogin() {
+            let password = document.getElementById("passwordInput").value;
+            let errorMessage = document.getElementById("errorMessage");
+
+            if (password === "bismay@244") {
+                sessionStorage.setItem("loggedIn", "true"); // Set login session
+                document.getElementById("loginPage").style.display = "none";
+                document.getElementById("mainContent").style.display = "block"; // Show main content
+            } else {
+                errorMessage.innerText = "Incorrect password. Try again!";
+                errorMessage.style.display = "block"; // Show error message
+            }
+        }
+
+        // Prevent access to main content if not logged in
+        window.onload = function () {
+            if (sessionStorage.getItem("loggedIn") !== "true") {
+                document.getElementById("loginPage").style.display = "flex";
+                document.getElementById("mainContent").style.display = "none";
+            }
+        };
+    </script>
+
+    <script src="script.js"></script>
+</body>
+</html>
