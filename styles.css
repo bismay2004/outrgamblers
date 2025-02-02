@@ -1,0 +1,543 @@
+/* Add this at the top of your CSS file */
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(135deg, #4b0082, #000080); /* Dark background */
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start; /* Top align */
+    height: 100vh;
+    overflow-y: auto;
+    text-align: center;
+}
+
+.container {
+    width: 100%;
+    max-width: 1000px; 
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 30px;
+    box-sizing: border-box;
+    border-radius: 16px;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(15px);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+    animation: fadeIn 1s ease-in-out;
+}
+
+.title {
+    font-size: 2rem; /* Reduced size for the title */
+    color: #f2d8f7;
+    font-weight: bold;
+    margin-bottom: 20px;
+    text-align: center;
+    font-family: 'Press Start 2P', monospace;
+}
+
+.about-section {
+    background: rgba(0, 0, 0, 0.3);
+    padding: 15px;
+    border-radius: 8px;
+    margin: 20px 0;
+    width: 80%;
+}
+
+.about-section h2 {
+    color: #ffeb3b;
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+
+.about-section p {
+    color: #ffffff;
+    font-size: 1rem;
+}
+
+/* Default Light Mode Styles for the Bets Table */
+.table {
+    width: 100%;
+    margin-top: 20px;
+    border-collapse: collapse;
+    text-align: center;
+    background: rgba(30, 30, 60, 0.8); /* Transparent dark blue background */
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease;
+}
+
+.table th, .table td {
+    padding: 15px;
+    border: 1px solid #444;
+    background: rgba(255, 255, 255, 0.05); /* Slight transparency */
+    color: #E0E0E0; /* Light grey text */
+    font-size: 1rem;
+    font-weight: 500;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.table th {
+    background: linear-gradient(45deg, #6A1B9A, #3F51B5); /* Purple to Blue gradient for header */
+    color: #ffffff; /* White text for contrast */
+    text-transform: uppercase;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+.table td {
+    background: rgba(255, 255, 255, 0.03); /* Darker cell background */
+}
+
+.table td:hover {
+    background: rgba(255, 255, 255, 0.1);
+    transform: translateY(-2px);
+}
+
+.table tr:nth-child(even) td {
+    background: rgba(255, 255, 255, 0.03);
+}
+
+.table tr:nth-child(odd) td {
+    background: rgba(255, 255, 255, 0.02);
+}
+
+.table td, .table th {
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.table tr:hover {
+    background-color: rgba(255, 255, 255, 0.08); /* Subtle hover effect */
+}
+
+.table th, .table td {
+    border-radius: 8px;
+}
+
+/* Dark Mode Styles for the Bets Table */
+body.dark-mode .table {
+    background: rgba(15, 15, 30, 0.9); /* Dark blue background */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+}
+
+body.dark-mode .table th {
+    background: linear-gradient(45deg, #3F51B5, #1A237E); /* Darker blue gradient for header */
+}
+
+body.dark-mode .table td {
+    background: rgba(255, 255, 255, 0.07); /* Slightly darker for dark mode */
+}
+
+body.dark-mode .table tr:nth-child(even) td {
+    background: rgba(255, 255, 255, 0.05);
+}
+
+body.dark-mode .table tr:nth-child(odd) td {
+    background: rgba(255, 255, 255, 0.03);
+}
+
+body.dark-mode .table td:hover {
+    background: rgba(255, 255, 255, 0.1);
+    transform: translateY(-2px);
+}
+
+
+/* Prediction Containers */
+.prediction-container {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 20px;
+    gap: 10px;
+}
+
+.prediction {
+    background: rgba(0, 0, 0, 0.3);
+    padding: 20px;
+    border-radius: 8px;
+    width: 45%;
+    min-width: 250px;
+}
+
+.prediction h3 {
+    color: #ffeb3b;
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+}
+
+.prediction-info {
+    color: #ffffff;
+    font-size: 1.2rem;
+    line-height: 1.5;
+    font-weight: bold;
+}
+
+.prediction-info span {
+    color: #ffd700;
+    font-weight: normal;
+}
+
+
+.button {
+    padding: 12px 20px;
+    margin-top: 20px;
+    background-color: #4caf50;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1.2rem;
+    transition: all 0.3s;
+}
+
+.clear-button {
+    background-color: crimson;
+}
+
+.button:hover {
+    background-color: #45a049;
+    transform: translateY(-2px);
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.switch {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 60px;
+    height: 34px;
+    cursor: pointer;
+    z-index: 100;
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #4359e7;
+    border-radius: 50px;
+    transition: 0.4s;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 4px;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    border-radius: 50%;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    transition: 0.4s;
+}
+
+input:checked + .slider {
+    background-color: #4caf50;
+}
+
+input:checked + .slider:before {
+    transform: translateX(26px);
+}
+
+.sun-icon, .moon-icon {
+    color: white;
+    font-size: 16px;
+    display: none;
+}
+
+input:checked + .slider .moon-icon {
+    display: block;
+}
+
+input:not(:checked) + .slider .sun-icon {
+    display: block;
+}
+
+body.dark-mode {
+    background: #0e072c;
+    color: #8f8a8a;
+}
+
+body.dark-mode .input, body.dark-mode {
+    background: #05052e;
+    color: #fff;
+}
+
+body.dark-mode .button {
+    background: #030373;
+    color: #fff;
+}
+
+body.dark-mode .container {
+    background: rgba(255, 255, 255, 0.05);
+}
+
+body.dark-mode .title {
+    color: #ffeb3b;
+}
+
+@media (max-width: 768px) {
+    .switch {
+        width: 50px;
+        height: 30px;
+    }
+
+    .slider:before {
+        height: 22px;
+        width: 22px;
+    }
+
+    .sun-icon, .moon-icon {
+        font-size: 14px;
+    }
+}
+
+
+
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+.profile-container {
+    position: absolute;  /* Keeps it fixed at the top-left */
+    top: 10px;
+    left: 10px;
+    z-index: 9999; /* Ensures it stays above all other content */
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.profile-icon {
+    font-size: 32px;
+    cursor: pointer;
+    color: white; /* Adjust color if needed */
+}
+
+/* Dropdown menu stays visible and properly positioned */
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 40px;
+    left: 0;
+    background: rgba(28, 28, 61, 0.9); /* Slightly transparent for better visibility */
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+    z-index: 10000; /* Ensures it's always on top */
+    min-width: 150px;
+}
+
+/* Ensures dropdown menu is visible on mobile */
+@media (max-width: 768px) {
+    .profile-container {
+        left: 10px; /* Ensures it stays at the top-left */
+        top: 10px;
+    }
+
+    .dropdown-menu {
+        width: 160px; /* Adjust width for mobile */
+    }
+}
+
+
+#logoutButton {
+    background-color: crimson;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+
+
+
+/* Login Page Background */
+.login-body {
+    background: linear-gradient(45deg, #1a1a2e, #16213e, #0f3460);
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Arial', sans-serif;
+}
+
+/* Login Box */
+.login-container {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 30px;
+    border-radius: 12px;
+    text-align: center;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+    width: 320px;
+    backdrop-filter: blur(10px);
+}
+
+/* Branding Title */
+.login-title {
+    font-size: 28px;
+    font-weight: bold;
+    color: #fff;
+    margin-bottom: 5px;
+    text-transform: uppercase;
+}
+
+.login-subtitle {
+    color: #ddd;
+    font-size: 14px;
+    margin-bottom: 20px;
+}
+
+/* Input Fields */
+.input-group {
+    position: relative;
+    margin-bottom: 15px;
+}
+
+.input-group i {
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #bbb;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 10px 35px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    background: rgba(255, 255, 255, 0.2);
+    color: #fff;
+}
+
+.input-group input::placeholder {
+    color: #ccc;
+}
+
+/* Login Button */
+#loginButton {
+    background: #ff4b5c;
+    color: white;
+    padding: 10px;
+    border: none;
+    width: 100%;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+#loginButton:hover {
+    background: #ff3b4d;
+}
+
+/* Error Message */
+.error {
+    color: red;
+    font-size: 14px;
+    margin-top: 10px;
+}
+
+/* Responsive */
+@media (max-width: 400px) {
+    .login-container {
+        width: 90%;
+    }
+}
+
+
+
+
+/* Toggle between Login & Signup */
+.toggle-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 15px;
+}
+
+.toggle-btn {
+    background: none;
+    border: none;
+    color: #ccc;
+    font-size: 16px;
+    cursor: pointer;
+    padding: 10px;
+    transition: 0.3s;
+}
+
+.toggle-btn.active {
+    color: white;
+    border-bottom: 2px solid #ff4b5c;
+}
+
+
+
+/* Hide Sign-up Form Initially */
+.hidden {
+    display: none;
+}
+
+/* Password Visibility Toggle */
+.toggle-password {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    color: #bbb;
+}
+
+
+
+
+
+/* Signup Button Styling */
+#signupButton {
+    background-color: #4CAF50;  /* Green color */
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+    width: 100%;
+    transition: background-color 0.3s ease;
+}
+
+#signupButton:hover {
+    background-color: #45a049;  /* Darker green on hover */
+}
+
+
+
