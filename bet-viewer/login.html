@@ -56,7 +56,7 @@
 
         // Check if the user is already logged in
 if (localStorage.getItem("loggedInUser")) {
-    window.location.href = "bettors.html";
+    window.location.href = "../bet-viewer/bettors.html";
 }
 
 
@@ -94,7 +94,7 @@ document.getElementById("loginButton").addEventListener("click", function () {
     if (username === storedUsername && password === storedPassword) {
         // If login is successful, store username in localStorage for logged-in state
         localStorage.setItem("loggedInUser", username);
-        window.location.href = "bettors.html";
+        window.location.href = "../bet-viewer/bettors.html";
     } else {
         document.getElementById("loginError").textContent = "Invalid Username or Password!";
     }
